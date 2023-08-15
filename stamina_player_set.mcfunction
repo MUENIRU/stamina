@@ -1,4 +1,27 @@
-# once in game
+# once at start of game
+
+# set tag-StaminaMax of all players to BasicStaminaMax
+scoreboard players operation @a tag-StaminaMax = BasicStaminaMax tag-StaminaMax
+
+# set tag-StaminaMin of all players to BasicStaminaMin
+scoreboard players operation @a tag-StaminaMin = BasicStaminaMin tag-StaminaMin
+
+# set tag-StaminaRecoverMax of all players to BasicStaminaRecoverValue
+scoreboard players operation @a tag-StaminaRecoverValue = BasicStaminaRecoverValue tag-StaminaRecoverValue
+
+# set tag-StaminaCoolTime of all players to BasicStaminaCoolTime
+scoreboard players operation @a tag-StaminaCoolTime = BasicStaminaCoolTime tag-StaminaCoolTime
+
+# set tag-StaminaYellowLine of all players to 50% of tag-StaminaMax
+execute at @a run scoreboard players operation @p tag-StaminaYellowLine = @p tag-StaminaMax
+execute at @a run scoreboard players operation @p tag-StaminaYellowLine /= 2 tag-StaminaYellowLine
+
+# set tag-StaminaRedLine of all players to 25% of tag-StaminaMax
+execute at @a run scoreboard players operation @p tag-StaminaRedLine = @p tag-StaminaMax
+execute at @a run scoreboard players operation @p tag-StaminaRedLine /= 4 tag-StaminaRedLine
+
+# set weights of used stamina to Basic weights
+execute at @a run scoreboard players operation @p tag-JumpCountWeight = BasicJumpCountWeight tag-JumpCountWeight
 
 # set tag-StaminaNumber of all participants
 scoreboard players set @a tag-StaminaNumber -1
