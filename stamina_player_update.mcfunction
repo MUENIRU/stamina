@@ -18,6 +18,7 @@ execute at @a run scoreboard players operation @p tag-stamina -= @p tag-StaminaU
 # give effect if stamina is 0 or less
 execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p slowness 3 255 true
 execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p blindness 3 255 true
+execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p levitation 3 255 true
 
 # recover stamina
 execute at @a run execute if score @p tag-stamina < @p tag-StaminaMax run execute if score @p tag-StaminaUsedValue matches 1.. run scoreboard players set @p tag-StaminaCoolTimeCount 0
