@@ -1,4 +1,4 @@
-# once at start of game
+# once at start of game after stamina_player_set
 
 # set 20 bossbars of tag-stamina
 execute store result bossbar tag-stamina1 max run scoreboard players get @p[scores={tag-StaminaNumber=1}] tag-StaminaMax
