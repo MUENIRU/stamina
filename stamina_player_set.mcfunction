@@ -17,6 +17,8 @@ execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operat
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRecoverValue = BasicStaminaRecoverValue tag-StaminaRecoverValue
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaCoolTime = BasicStaminaCoolTime tag-StaminaCoolTime
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-JumpCountWeight = BasicJumpCountWeight tag-JumpCountWeight
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaUsedMultiple = BasicStaminaUsedMultiple tag-StaminaUsedMultiple
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaUsedDivide = BasicStaminaUsedDivide tag-StaminaUsedDivide
 
 # set YellowLine and RedLine of all participants
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine = @s tag-StaminaMax
