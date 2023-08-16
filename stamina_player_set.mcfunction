@@ -1,80 +1,72 @@
 # once at start of game before stamina_bar_set
 
 # set used stamina paramater to 0
-scoreboard players set @a tag-WalkDistance 0
-scoreboard players set @a tag-DashDistance 0
-scoreboard players set @a tag-FlyDistance 0
-scoreboard players set @a tag-JumpCount 0
-scoreboard players set @a tag-ClimbDistance 0
-scoreboard players set @a tag-SwimDistance 0
-scoreboard players set @a tag-WalkOnWaterDistance 0
-scoreboard players set @a tag-WalkUnderWaterDistance 0
-scoreboard players set @a tag-StaminaUsedValue 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-DashDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-FlyDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-JumpCount 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-ClimbDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-SwimDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkOnWaterDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkUnderWaterDistance 0
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-StaminaUsedValue 0
 
-# set tag-StaminaMax of all players to BasicStaminaMax
-scoreboard players operation @a tag-StaminaMax = BasicStaminaMax tag-StaminaMax
+# set variables of all participants to Basic
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaMax = BasicStaminaMax tag-StaminaMax
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaMin = BasicStaminaMin tag-StaminaMin
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRecoverValue = BasicStaminaRecoverValue tag-StaminaRecoverValue
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaCoolTime = BasicStaminaCoolTime tag-StaminaCoolTime
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-JumpCountWeight = BasicJumpCountWeight tag-JumpCountWeight
 
-# set tag-StaminaMin of all players to BasicStaminaMin
-scoreboard players operation @a tag-StaminaMin = BasicStaminaMin tag-StaminaMin
-
-# set tag-StaminaRecoverMax of all players to BasicStaminaRecoverValue
-scoreboard players operation @a tag-StaminaRecoverValue = BasicStaminaRecoverValue tag-StaminaRecoverValue
-
-# set tag-StaminaCoolTime of all players to BasicStaminaCoolTime
-scoreboard players operation @a tag-StaminaCoolTime = BasicStaminaCoolTime tag-StaminaCoolTime
-
-# set tag-StaminaYellowLine of all players to 50% of tag-StaminaMax
-execute at @a run scoreboard players operation @p tag-StaminaYellowLine = @p tag-StaminaMax
-execute at @a run scoreboard players operation @p tag-StaminaYellowLine /= 2 tag-StaminaYellowLine
-
-# set tag-StaminaRedLine of all players to 25% of tag-StaminaMax
-execute at @a run scoreboard players operation @p tag-StaminaRedLine = @p tag-StaminaMax
-execute at @a run scoreboard players operation @p tag-StaminaRedLine /= 4 tag-StaminaRedLine
-
-# set weights of used stamina to Basic weights
-execute at @a run scoreboard players operation @p tag-JumpCountWeight = BasicJumpCountWeight tag-JumpCountWeight
+# set YellowLine and RedLine of all participants
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine = @s tag-StaminaMax
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine /= 2 tag-StaminaYellowLine
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRedLine = @s tag-StaminaMax
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRedLine /= 4 tag-StaminaRedLine
 
 # set tag-StaminaNumber of all participants
-scoreboard players set @a tag-StaminaNumber -1
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 1
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 2
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 3
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 4
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 5
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 6
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 7
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 8
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 9
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 10
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 11
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 12
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 13
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 14
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 15
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 16
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 17
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 18
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 19
-scoreboard players set @p[scores={tag-StaminaNumber=-1}] tag-StaminaNumber 20
+scoreboard objectives remove tag-StaminaNumber
+scoreboard objectives add tag-StaminaNumber dummy
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-StaminaNumber -1
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 1
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 2
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 3
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 4
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 5
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 6
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 7
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 8
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 9
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 10
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 11
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 12
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 13
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 14
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 15
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 16
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 17
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 18
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 19
+execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 20
 
 # set players who can see certain stamina bars
-bossbar set tag-stamina1 players @p[scores={tag-StaminaNumber=1}]
-bossbar set tag-stamina2 players @p[scores={tag-StaminaNumber=2}]
-bossbar set tag-stamina3 players @p[scores={tag-StaminaNumber=3}]
-bossbar set tag-stamina4 players @p[scores={tag-StaminaNumber=4}]
-bossbar set tag-stamina5 players @p[scores={tag-StaminaNumber=5}]
-bossbar set tag-stamina6 players @p[scores={tag-StaminaNumber=6}]
-bossbar set tag-stamina7 players @p[scores={tag-StaminaNumber=7}]
-bossbar set tag-stamina8 players @p[scores={tag-StaminaNumber=8}]
-bossbar set tag-stamina9 players @p[scores={tag-StaminaNumber=9}]
-bossbar set tag-stamina10 players @p[scores={tag-StaminaNumber=10}]
-bossbar set tag-stamina11 players @p[scores={tag-StaminaNumber=11}]
-bossbar set tag-stamina12 players @p[scores={tag-StaminaNumber=12}]
-bossbar set tag-stamina13 players @p[scores={tag-StaminaNumber=13}]
-bossbar set tag-stamina14 players @p[scores={tag-StaminaNumber=14}]
-bossbar set tag-stamina15 players @p[scores={tag-StaminaNumber=15}]
-bossbar set tag-stamina16 players @p[scores={tag-StaminaNumber=16}]
-bossbar set tag-stamina17 players @p[scores={tag-StaminaNumber=17}]
-bossbar set tag-stamina18 players @p[scores={tag-StaminaNumber=18}]
-bossbar set tag-stamina19 players @p[scores={tag-StaminaNumber=19}]
-bossbar set tag-stamina20 players @p[scores={tag-StaminaNumber=20}]
+execute as @p[scores={tag-StaminaNumber=1}] run bossbar set tag-stamina1 players @s
+execute as @p[scores={tag-StaminaNumber=2}] run bossbar set tag-stamina2 players @s
+execute as @p[scores={tag-StaminaNumber=3}] run bossbar set tag-stamina3 players @s
+execute as @p[scores={tag-StaminaNumber=4}] run bossbar set tag-stamina4 players @s
+execute as @p[scores={tag-StaminaNumber=5}] run bossbar set tag-stamina5 players @s
+execute as @p[scores={tag-StaminaNumber=6}] run bossbar set tag-stamina6 players @s
+execute as @p[scores={tag-StaminaNumber=7}] run bossbar set tag-stamina7 players @s
+execute as @p[scores={tag-StaminaNumber=8}] run bossbar set tag-stamina8 players @s
+execute as @p[scores={tag-StaminaNumber=9}] run bossbar set tag-stamina9 players @s
+execute as @p[scores={tag-StaminaNumber=10}] run bossbar set tag-stamina10 players @s
+execute as @p[scores={tag-StaminaNumber=11}] run bossbar set tag-stamina11 players @s
+execute as @p[scores={tag-StaminaNumber=12}] run bossbar set tag-stamina12 players @s
+execute as @p[scores={tag-StaminaNumber=13}] run bossbar set tag-stamina13 players @s
+execute as @p[scores={tag-StaminaNumber=14}] run bossbar set tag-stamina14 players @s
+execute as @p[scores={tag-StaminaNumber=15}] run bossbar set tag-stamina15 players @s
+execute as @p[scores={tag-StaminaNumber=16}] run bossbar set tag-stamina16 players @s
+execute as @p[scores={tag-StaminaNumber=17}] run bossbar set tag-stamina17 players @s
+execute as @p[scores={tag-StaminaNumber=18}] run bossbar set tag-stamina18 players @s
+execute as @p[scores={tag-StaminaNumber=19}] run bossbar set tag-stamina19 players @s
+execute as @p[scores={tag-StaminaNumber=20}] run bossbar set tag-stamina20 players @s
