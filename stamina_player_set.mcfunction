@@ -1,6 +1,6 @@
 # once at start of game before stamina_bar_set
 
-# set used stamina paramater to 0
+# reset variables of stamina
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkDistance 0
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-DashDistance 0
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-FlyDistance 0
@@ -10,8 +10,6 @@ execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkOnWaterDistance 0
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-WalkUnderWaterDistance 0
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-StaminaUsedValue 0
-
-# set variables of all participants to Basic
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaMax = BasicStaminaMax tag-StaminaMax
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaMin = BasicStaminaMin tag-StaminaMin
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRecoverValue = BasicStaminaRecoverValue tag-StaminaRecoverValue
@@ -19,6 +17,7 @@ execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operat
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-JumpCountWeight = BasicJumpCountWeight tag-JumpCountWeight
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaUsedMultiple = BasicStaminaUsedMultiple tag-StaminaUsedMultiple
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaUsedDivide = BasicStaminaUsedDivide tag-StaminaUsedDivide
+execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-stamina = @s tag-StaminaMax
 
 # set YellowLine and RedLine of all participants
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine = @s tag-StaminaMax
@@ -72,25 +71,3 @@ execute as @p[scores={tag-StaminaNumber=17}] run bossbar set tag-stamina17 playe
 execute as @p[scores={tag-StaminaNumber=18}] run bossbar set tag-stamina18 players @s
 execute as @p[scores={tag-StaminaNumber=19}] run bossbar set tag-stamina19 players @s
 execute as @p[scores={tag-StaminaNumber=20}] run bossbar set tag-stamina20 players @s
-
-# let bossbar visible
-bossbar set tag-stamina1 visible true
-bossbar set tag-stamina2 visible true
-bossbar set tag-stamina3 visible true
-bossbar set tag-stamina4 visible true
-bossbar set tag-stamina5 visible true
-bossbar set tag-stamina6 visible true
-bossbar set tag-stamina7 visible true
-bossbar set tag-stamina8 visible true
-bossbar set tag-stamina9 visible true
-bossbar set tag-stamina10 visible true
-bossbar set tag-stamina11 visible true
-bossbar set tag-stamina12 visible true
-bossbar set tag-stamina13 visible true
-bossbar set tag-stamina14 visible true
-bossbar set tag-stamina15 visible true
-bossbar set tag-stamina16 visible true
-bossbar set tag-stamina17 visible true
-bossbar set tag-stamina18 visible true
-bossbar set tag-stamina19 visible true
-bossbar set tag-stamina20 visible true
