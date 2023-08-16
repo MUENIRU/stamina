@@ -51,7 +51,7 @@ execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-S
 execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 19
 execute as @p[scores={tag-StaminaNumber=-1}] run scoreboard players set @s tag-StaminaNumber 20
 
-# set players who can see certain stamina bars
+# set who can see stamina bars
 execute as @p[scores={tag-StaminaNumber=1}] run bossbar set tag-stamina1 players @s
 execute as @p[scores={tag-StaminaNumber=2}] run bossbar set tag-stamina2 players @s
 execute as @p[scores={tag-StaminaNumber=3}] run bossbar set tag-stamina3 players @s
@@ -72,3 +72,25 @@ execute as @p[scores={tag-StaminaNumber=17}] run bossbar set tag-stamina17 playe
 execute as @p[scores={tag-StaminaNumber=18}] run bossbar set tag-stamina18 players @s
 execute as @p[scores={tag-StaminaNumber=19}] run bossbar set tag-stamina19 players @s
 execute as @p[scores={tag-StaminaNumber=20}] run bossbar set tag-stamina20 players @s
+
+# let bossbar visible
+bossbar set tag-stamina1 visible true
+bossbar set tag-stamina2 visible true
+bossbar set tag-stamina3 visible true
+bossbar set tag-stamina4 visible true
+bossbar set tag-stamina5 visible true
+bossbar set tag-stamina6 visible true
+bossbar set tag-stamina7 visible true
+bossbar set tag-stamina8 visible true
+bossbar set tag-stamina9 visible true
+bossbar set tag-stamina10 visible true
+bossbar set tag-stamina11 visible true
+bossbar set tag-stamina12 visible true
+bossbar set tag-stamina13 visible true
+bossbar set tag-stamina14 visible true
+bossbar set tag-stamina15 visible true
+bossbar set tag-stamina16 visible true
+bossbar set tag-stamina17 visible true
+bossbar set tag-stamina18 visible true
+bossbar set tag-stamina19 visible true
+bossbar set tag-stamina20 visible true
