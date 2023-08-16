@@ -2,32 +2,31 @@
 
 # calculate players' used stamina value
 scoreboard players set @a tag-StaminaUsedValue 0
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-WalkDistance
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-DashDistance
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-FlyDistance
-execute at @a run scoreboard players operation @p tag-JumpCount *= @p tag-JumpCountWeight
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-JumpCount
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-ClimbDistance
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-SwimDistance
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-WalkOnWaterDistance
-execute at @a run scoreboard players operation @p tag-StaminaUsedValue += @p tag-WalkUnderWaterDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-DashDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-FlyDistance
+execute as @a run scoreboard players operation @s tag-JumpCount *= @s tag-JumpCountWeight
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-JumpCount
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-ClimbDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-SwimDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkOnWaterDistance
+execute as @a run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkUnderWaterDistance
 
 # subtruct used stamina value from players' stamina
-execute at @a run scoreboard players operation @p tag-stamina -= @p tag-StaminaUsedValue
+execute as @a run scoreboard players operation @s tag-stamina -= @s tag-StaminaUsedValue
 
 # give effect if stamina is 0 or less
-execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p slowness 3 255 true
-execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p blindness 3 255 true
-execute at @a run execute if score @p tag-stamina <= @p tag-StaminaMin run effect give @p levitation 3 255 true
+execute as @a if score @s tag-stamina <= @s tag-StaminaMin run effect give @s slowness 3 255 true
+execute as @a if score @s tag-stamina <= @s tag-StaminaMin run effect give @s blindness 3 255 true
 
 # recover stamina
-execute at @a run execute if score @p tag-stamina < @p tag-StaminaMax run execute if score @p tag-StaminaUsedValue matches 1.. run scoreboard players set @p tag-StaminaCoolTimeCount 0
-execute at @a run execute if score @p tag-stamina < @p tag-StaminaMax run execute if score @p tag-StaminaUsedValue matches 0 run scoreboard players add @p tag-StaminaCoolTimeCount 1
-execute at @a run execute if score @p tag-stamina < @p tag-StaminaMax run execute if score @p tag-StaminaCoolTimeCount >= @p tag-StaminaCoolTime run scoreboard players operation @p tag-stamina += @p tag-StaminaRecoverValue
+execute as @a if score @s tag-stamina < @s tag-StaminaMax if score @s tag-StaminaUsedValue matches 1.. run scoreboard players set @s tag-StaminaCoolTimeCount 0
+execute as @a if score @s tag-stamina < @s tag-StaminaMax if score @s tag-StaminaUsedValue matches 0 run scoreboard players add @s tag-StaminaCoolTimeCount 1
+execute as @a if score @s tag-stamina < @s tag-StaminaMax if score @s tag-StaminaCoolTimeCount >= @s tag-StaminaCoolTime run scoreboard players operation @s tag-stamina += @s tag-StaminaRecoverValue
 
 # set players' stamina ranging form STAMINA_MIN to STAMINA_MAX
-execute at @a run execute if score @p tag-stamina > @p tag-StaminaMax run scoreboard players operation @p tag-stamina = @p tag-StaminaMax
-execute at @a run execute if score @p tag-stamina < @p tag-StaminaMin run scoreboard players operation @p tag-stamina = @p tag-StaminaMin
+execute as @a if score @s tag-stamina > @s tag-StaminaMax run scoreboard players operation @s tag-stamina = @s tag-StaminaMax
+execute as @a if score @s tag-stamina < @s tag-StaminaMin run scoreboard players operation @s tag-stamina = @s tag-StaminaMin
 
 # reset used stamina
 scoreboard players set @a tag-WalkDistance 0

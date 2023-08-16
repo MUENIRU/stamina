@@ -1,4 +1,15 @@
-# once at start of game
+# once at start of game before stamina_bar_set
+
+# set used stamina paramater to 0
+scoreboard players set @a tag-WalkDistance 0
+scoreboard players set @a tag-DashDistance 0
+scoreboard players set @a tag-FlyDistance 0
+scoreboard players set @a tag-JumpCount 0
+scoreboard players set @a tag-ClimbDistance 0
+scoreboard players set @a tag-SwimDistance 0
+scoreboard players set @a tag-WalkOnWaterDistance 0
+scoreboard players set @a tag-WalkUnderWaterDistance 0
+scoreboard players set @a tag-StaminaUsedValue 0
 
 # set tag-StaminaMax of all players to BasicStaminaMax
 scoreboard players operation @a tag-StaminaMax = BasicStaminaMax tag-StaminaMax
