@@ -19,13 +19,13 @@ execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operat
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaUsedDivide = BasicStaminaUsedDivide tag-StaminaUsedDivide
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-stamina = @s tag-StaminaMax
 
-# set YellowLine and RedLine of all participants
+# set YellowLine and RedLine
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine = @s tag-StaminaMax
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaYellowLine /= 2 tag-StaminaYellowLine
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRedLine = @s tag-StaminaMax
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players operation @s tag-StaminaRedLine /= 4 tag-StaminaRedLine
 
-# set tag-StaminaNumber of all participants
+# set tag-StaminaNumber
 scoreboard objectives remove tag-StaminaNumber
 scoreboard objectives add tag-StaminaNumber dummy
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-StaminaNumber -1

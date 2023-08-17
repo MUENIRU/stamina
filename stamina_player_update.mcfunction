@@ -1,6 +1,6 @@
 # always in game
 
-# calculate players' used stamina value
+# calculate used stamina value
 execute as @a[scores={Operator=0,tag-spectator=0}] run scoreboard players set @s tag-StaminaUsedValue 0
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkDistance
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue += @s tag-DashDistance
@@ -12,7 +12,7 @@ execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard player
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkOnWaterDistance
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue += @s tag-WalkUnderWaterDistance
 
-# subtruct used stamina value from participants' stamina
+# subtruct used stamina value from stamina
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue *= @s tag-StaminaUsedMultiple
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-StaminaUsedValue /= @s tag-StaminaUsedDivide
 execute as @a[scores={Operator=0,tag-spectator=0},team=!F] run scoreboard players operation @s tag-stamina -= @s tag-StaminaUsedValue
@@ -26,7 +26,7 @@ execute as @a[scores={Operator=0,tag-spectator=0}] if score @s tag-stamina < @s 
 execute as @a[scores={Operator=0,tag-spectator=0}] if score @s tag-stamina < @s tag-StaminaMax if score @s tag-StaminaUsedValue matches 0 run scoreboard players add @s tag-StaminaCoolTimeCount 1
 execute as @a[scores={Operator=0,tag-spectator=0}] if score @s tag-stamina < @s tag-StaminaMax if score @s tag-StaminaCoolTimeCount >= @s tag-StaminaCoolTime run scoreboard players operation @s tag-stamina += @s tag-StaminaRecoverValue
 
-# set participants' stamina ranging form StaminaMin to StaminaMax
+# set stamina ranging form StaminaMin to StaminaMax
 execute as @a[scores={Operator=0,tag-spectator=0}] if score @s tag-stamina > @s tag-StaminaMax run scoreboard players operation @s tag-stamina = @s tag-StaminaMax
 execute as @a[scores={Operator=0,tag-spectator=0}] if score @s tag-stamina < @s tag-StaminaMin run scoreboard players operation @s tag-stamina = @s tag-StaminaMin
 

@@ -1,6 +1,6 @@
 # once at start of game after stamina_player_set
 
-# set 20 bossbars' max of tag-stamina
+# set 20 bossbars' max
 execute as @p[scores={tag-StaminaNumber=1}] store result bossbar tag-stamina1 max run scoreboard players get @s tag-StaminaMax
 execute as @p[scores={tag-StaminaNumber=2}] store result bossbar tag-stamina2 max run scoreboard players get @s tag-StaminaMax
 execute as @p[scores={tag-StaminaNumber=3}] store result bossbar tag-stamina3 max run scoreboard players get @s tag-StaminaMax
@@ -22,7 +22,7 @@ execute as @p[scores={tag-StaminaNumber=18}] store result bossbar tag-stamina18 
 execute as @p[scores={tag-StaminaNumber=19}] store result bossbar tag-stamina19 max run scoreboard players get @s tag-StaminaMax
 execute as @p[scores={tag-StaminaNumber=20}] store result bossbar tag-stamina20 max run scoreboard players get @s tag-StaminaMax
 
-# set 20 bossbars' value of tag-stamina to max
+# set 20 bossbars' value to max
 execute as @p[scores={tag-StaminaNumber=1}] store result bossbar tag-stamina1 value run scoreboard players get @s tag-StaminaMax
 execute as @p[scores={tag-StaminaNumber=2}] store result bossbar tag-stamina2 value run scoreboard players get @s tag-StaminaMax
 execute as @p[scores={tag-StaminaNumber=3}] store result bossbar tag-stamina3 value run scoreboard players get @s tag-StaminaMax

@@ -22,7 +22,7 @@ execute as @p[scores={tag-StaminaNumber=18}] store result bossbar tag-stamina18 
 execute as @p[scores={tag-StaminaNumber=19}] store result bossbar tag-stamina19 value run scoreboard players get @s tag-stamina
 execute as @p[scores={tag-StaminaNumber=20}] store result bossbar tag-stamina20 value run scoreboard players get @s tag-stamina
 
-# change stamina bars' color depending on player's stamina
+# change stamina bars' color depending on participants' stamina
 # white line
 execute as @p[scores={tag-StaminaNumber=1}] if score @s tag-StaminaYellowLine < @s tag-stamina run bossbar set tag-stamina1 color white
 execute as @p[scores={tag-StaminaNumber=2}] if score @s tag-StaminaYellowLine < @s tag-stamina run bossbar set tag-stamina2 color white
